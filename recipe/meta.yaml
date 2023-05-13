@@ -1,6 +1,6 @@
 {% set name = "mfront" %}
-{% set version = "3.2.1" %}
-{% set sha256 = "12786480524a7fe86889120fb334fa00211dfd44ad5ec71e2279e7adf1ddc807" %}
+{% set version = "3.3.2" %}
+{% set sha256 = "17127ffdf92367c10041258f70a88ac3dcb0a7d89c1766a6aa1ebaeb4d03d55d" %}
 
 package:
   name: {{ name|lower }}
@@ -14,7 +14,7 @@ source:
 build:
   number: 0
   skip: true  # [py2k or osx or win or (python_impl == 'pypy')]
-  detect_binary_files_with_prefix: True
+  detect_binary_files_with_prefix: true
   run_exports:
     - {{ pin_subpackage('mfront', max_pin='x.x.x') }}
 
@@ -27,7 +27,7 @@ requirements:
     - llvm-openmp  # [osx]    
     - sysroot_linux-64 =2.17  # [linux64]
   host:
-    - cmake  
+    - cmake
     - make  # [not win]
     - ninja  # [win]
     - boost
@@ -64,7 +64,7 @@ about:
   license: GPL-3.0-only
   license_family: GPL
   license_file: LICENCE-GNU-GPL
-  summary: 'MFront, a code generation tool dedicated to material knowledge'
+  summary: MFront, a code generation tool dedicated to material knowledge
   description: |
     MFront is a code generator which translates a set of closely related domain specific languages into plain C++ on top of the TFEL library. Those languages cover three kinds of material knowledge:
     material properties (for instance the Young modulus, the thermal conductivity, etc.)
