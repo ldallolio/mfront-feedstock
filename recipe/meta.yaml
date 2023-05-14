@@ -1,6 +1,6 @@
 {% set name = "mfront" %}
-{% set version = "3.3.2" %}
-{% set sha256 = "17127ffdf92367c10041258f70a88ac3dcb0a7d89c1766a6aa1ebaeb4d03d55d" %}
+{% set version = "4.1.0" %}
+{% set sha256 = "7505c41da9df5fb3c281651ff29b58a18fd4d91b92f839322f0267269c5f1375" %}
 
 package:
   name: {{ name|lower }}
@@ -20,9 +20,9 @@ build:
 
 requirements:
   build:
-    - gcc 8  # [linux]
-    - gxx 8  # [linux]
-    - gfortran 8  # [linux]
+    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - libgomp  # [linux]
     - llvm-openmp  # [osx]    
     - sysroot_linux-64 =2.17  # [linux64]
@@ -50,7 +50,8 @@ test:
     - mfront-query --version
     - mfm --version
     - test -f $PREFIX/lib/libTFELConfig.so  # [linux]
-    - test -f $PREFIX/lib/libTFELPhysicalConstants.so  # [linux]
+    - test -f $PREFIX/lib/libTFELUnicodeSupport.so  # [linux]
+    - test -f $PREFIX/lib/libTFELGlossary.so  # [linux]
     - test -f $PREFIX/lib/libTFELException.so  # [linux]
     - test -f $PREFIX/lib/libTFELUtilities.so  # [linux]
 
