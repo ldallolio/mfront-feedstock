@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 3
   skip: true  # [py2k or osx or win or (python_impl == 'pypy')]
   detect_binary_files_with_prefix: true
   run_exports:
@@ -30,12 +30,11 @@ requirements:
     - cmake
     - make  # [not win]
     - ninja  # [win]
-    - boost
+    - libboost-python-devel
     - python
     - zlib  # [linux]
   run:
     - python
-    - {{ pin_compatible('boost', max_pin='x.x') }}
     - libstdcxx-ng  # [linux]
     - libgcc-ng  # [linux]
 
