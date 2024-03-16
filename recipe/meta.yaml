@@ -20,16 +20,18 @@ build:
 
 requirements:
   build:
-    - {{ compiler('fortran') }}
+    - {{ compiler('fortran') }}  # [not win]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - cmake
+    - make  # [not win]
+    - ninja                       # [win]
+    - clang                       # [win]
+    - lld                         # [win]
     - libgomp  # [linux]
     - llvm-openmp  # [osx]    
     - sysroot_linux-64 =2.17  # [linux64]
   host:
-    - cmake
-    - make  # [not win]
-    - ninja  # [win]
     - libboost-python-devel
     - python
     - zlib  # [linux]
