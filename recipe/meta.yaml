@@ -12,8 +12,8 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  skip: true  # [py2k or osx or win or (python_impl == 'pypy')]
+  number: 1
+  skip: true  # [py2k or osx or (python_impl == 'pypy')]
   detect_binary_files_with_prefix: true
   run_exports:
     - {{ pin_subpackage('mfront', max_pin='x.x.x') }}
