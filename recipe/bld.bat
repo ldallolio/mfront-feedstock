@@ -1,6 +1,8 @@
 @echo off
 echo Build MFRONT/TFEL
 
+set FC=flang-new
+
 cmake -B build . -G "Ninja" -Wno-dev ^
     %CMAKE_ARGS% ^
     -DCMAKE_CXX_COMPILER=clang-cl ^
@@ -8,7 +10,7 @@ cmake -B build . -G "Ninja" -Wno-dev ^
     -DCMAKE_LINKER=lld-link ^
     -DCMAKE_NM=llvm-nm ^
     -DCMAKE_BUILD_TYPE=Release ^
-    -Denable-fortran=OFF ^
+    -Denable-fortran=ON ^
     -Denable-python-bindings=ON ^
     -Denable-cyrano=ON ^
     -Denable-aster=ON ^
