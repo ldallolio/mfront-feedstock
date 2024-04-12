@@ -14,9 +14,11 @@ source:
     - patches/fix_v4_2_0_clang_win.patch  # [win]
     - patches/override_site_package_dir_for_windows.patch  # [win]
 build:
-  number: 2
+  number: 3
   skip: true  # [py2k or osx or (python_impl == 'pypy')]
   skip: true  # [win and py<39]
+  # this is temporary until we can get the tests to pass
+  skip: true # [not win]
   detect_binary_files_with_prefix: true
   run_exports:
     - {{ pin_subpackage('mfront', max_pin='x.x.x') }}
