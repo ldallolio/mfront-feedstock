@@ -30,6 +30,7 @@ requirements:
     - cmake
     - make  # [not win]
     - ninja                       # [win]
+    - flang                       # [win]
     - clang                       # [win]
     - lld                         # [win]
     - libgomp  # [linux]
