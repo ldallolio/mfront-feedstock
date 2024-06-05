@@ -1,6 +1,6 @@
 {% set name = "mfront" %}
-{% set version = "4.2.0" %}
-{% set sha256 = "cf8a309c4d19a8e36232f8540ff28aa0d6285645f8dfb1ac57dd481ba3453e02" %}
+{% set version = "4.2.1" %}
+{% set sha256 = "14f27257014a992a4e511f35390e4b9a086f6a5ed74087f891f8c00306f1758f" %}
 
 package:
   name: {{ name|lower }}
@@ -16,7 +16,7 @@ source:
     - patches/support_llvm-flang.patch  # [win]
 
 build:
-  number: 3
+  number: 0
   skip: true  # [py2k or osx or (python_impl == 'pypy')]
   skip: true  # [win and py<39]
   # this is temporary until we can get the tests to pass
