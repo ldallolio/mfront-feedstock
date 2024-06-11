@@ -11,8 +11,6 @@ source:
   url: https://github.com/thelfer/tfel/archive/refs/tags/TFEL-{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-    - patches/fix_v4_2_0_clang_win.patch  # [win]
-    - patches/override_site_package_dir_for_windows.patch  # [win]
     - patches/support_llvm-flang.patch  # [win]
 
 build:
