@@ -14,35 +14,31 @@ source:
     - patches/support_llvm-flang.patch  # [win]
 
 build:
-  number: 2
-  skip: true  # [py2k or osx or (python_impl == 'pypy')]
-  skip: true  # [win and py<39]
+  number: 3
+  skip: true  # [osx]
   detect_binary_files_with_prefix: true
   run_exports:
     - {{ pin_subpackage('mfront', max_pin='x.x.x') }}
 
 requirements:
   build:
-    - {{ compiler('fortran') }}  # [not win]
+    - {{ compiler("fortran") }}
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - cmake
     - make  # [not win]
     - ninja                       # [win]
-    - flang                       # [win]
     - clang                       # [win]
     - lld                         # [win]
     - libgomp  # [linux]
-    - llvm-openmp  # [osx]    
+    - llvm-openmp  # [osx]
   host:
     - libboost-python-devel
     - python
     - zlib  # [linux]
   run:
     - python
-    - libstdcxx-ng  # [linux]
-    - libgcc-ng  # [linux]
 
 test:
   commands:

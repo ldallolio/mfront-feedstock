@@ -2,6 +2,7 @@
 echo Build MFRONT/TFEL
 
 set FC=flang-new
+set "CXXFLAGS=%CXXFLAGS% -Wno-error=missing-template-arg-list-after-template-kw"
 
 cmake -B build . -G "Ninja" -Wno-dev ^
     %CMAKE_ARGS% ^
