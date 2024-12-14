@@ -1,6 +1,6 @@
 {% set name = "mfront" %}
-{% set version = "4.2.1" %}
-{% set sha256 = "14f27257014a992a4e511f35390e4b9a086f6a5ed74087f891f8c00306f1758f" %}
+{% set version = "4.2.2" %}
+{% set sha256 = "021864ad5b27ffce1915bcacc8f39f3e8a72ce6bd32e80a61ea0998a060180e5" %}
 
 package:
   name: {{ name|lower }}
@@ -14,7 +14,7 @@ source:
     - patches/support_llvm-flang.patch  # [win]
 
 build:
-  number: 3
+  number: 0
   skip: true  # [osx]
   detect_binary_files_with_prefix: true
   run_exports:
