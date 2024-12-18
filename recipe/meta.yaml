@@ -1,6 +1,6 @@
 {% set name = "mfront" %}
-{% set version = "4.2.2" %}
-{% set sha256 = "021864ad5b27ffce1915bcacc8f39f3e8a72ce6bd32e80a61ea0998a060180e5" %}
+{% set version = "5.0.0" %}
+{% set sha256 = "fe1ec39eba7f23571c2b0c773dab1cc274fee4512c5b2f2fc54b231da4502e87" %}
 
 package:
   name: {{ name|lower }}
