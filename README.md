@@ -3,7 +3,7 @@ About mfront-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mfront-feedstock/blob/main/LICENSE.txt)
 
-Home: 
+Home: https://github.com/thelfer/tfel
 
 Package license: GPL-3.0-only
 
