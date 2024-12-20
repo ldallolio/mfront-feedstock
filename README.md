@@ -3,15 +3,15 @@ About mfront-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mfront-feedstock/blob/main/LICENSE.txt)
 
-Home: http://tfel.sourceforge.net
+Home: https://github.com/thelfer/tfel
 
 Package license: GPL-3.0-only
 
 Summary: MFront, a code generation tool dedicated to material knowledge
 
-Development: http://tfel.sourceforge.net/devel.html
+Development: https://thelfer.github.io/tfel/web/contributing.html
 
-Documentation: http://tfel.sourceforge.net/documentations.html
+Documentation: https://thelfer.github.io/tfel/web/index.html
 
 MFront is a code generator which translates a set of closely related domain specific languages into plain C++ on top of the TFEL library. Those languages cover three kinds of material knowledge:
 material properties (for instance the Young modulus, the thermal conductivity, etc.)
