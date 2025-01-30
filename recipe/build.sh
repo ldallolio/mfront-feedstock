@@ -29,6 +29,7 @@ cmake ${CMAKE_ARGS} -Wno-dev \
          -Denable-python-bindings=ON \
          -Denable-portable-build=ON \
          -DCMAKE_INSTALL_PREFIX=$PREFIX \
+         -DUSE_EXTERNAL_COMPILER_FLAGS=ON \
          -S . -B build
 
 cmake --build ./build --config Release -j 1 # docker gets killed with higher parallelism
