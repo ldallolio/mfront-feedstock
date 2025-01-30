@@ -4,7 +4,7 @@ set -e
 echo "**************** M F R O N T  B U I L D  S T A R T S  H E R E ****************"
 
 # https://docs.conda.io/projects/conda-build/en/latest/resources/compiler-tools.html#an-aside-on-cmake-and-sysroots
-if [ "$(uname)" == "Darwin" ]; then
+if [[ "${target_platform}" == osx-* ]]; then
   export LDFLAGS="-L$PREFIX/lib -lm -lpthread -ldl -lz -lomp"
   export LIBPATH="$PREFIX/lib $LIBPATH"
 else
