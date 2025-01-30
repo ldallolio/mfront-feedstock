@@ -15,7 +15,7 @@ fi
 cmake ${CMAKE_ARGS} -Wno-dev \
          -D CMAKE_PREFIX_PATH=$PREFIX \
          -D CMAKE_SYSTEM_PREFIX_PATH=$PREFIX \
-         -D PYTHON_EXECUTABLE:FILEPATH="${PYTHON}" \
+         -D Python3_EXECUTABLE=$PREFIX/bin/python \
          -D Python_ADDITIONAL_VERSIONS=${CONDA_PY} \
          -D PYTHON_INCLUDE_DIRS="${PREFIX}/include" \
          -D COMPILER_CXXFLAGS="-I${PREFIX}/include -w" \
