@@ -18,6 +18,7 @@ cmake ${CMAKE_ARGS} -Wno-dev \
          -D enable-fortran=ON \
          -D enable-aster=ON \
          -D enable-cyrano=ON \
+         -D PYTHON_EXECUTABLE:FILEPATH=$PYTHON \
          -D Python_ADDITIONAL_VERSIONS=${CONDA_PY} \
          -D PYTHON_INCLUDE_DIRS=${PREFIX}/include \
          -D COMPILER_CXXFLAGS="-I${PREFIX}/include -w" \
