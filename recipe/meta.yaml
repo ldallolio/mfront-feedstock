@@ -14,7 +14,7 @@ source:
     - patches/support_llvm-flang.patch  # [win]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [osx]
   detect_binary_files_with_prefix: true
   run_exports:
