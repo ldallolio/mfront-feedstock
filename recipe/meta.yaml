@@ -12,6 +12,7 @@ source:
   sha256: {{ sha256 }}
   patches:
     - patches/support_llvm-flang.patch  # [win]
+    - patches/fix_Issue_703.patch
 
 build:
   number: 1
