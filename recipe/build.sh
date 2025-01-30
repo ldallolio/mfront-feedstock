@@ -20,7 +20,7 @@ cmake ${CMAKE_ARGS} -Wno-dev \
          -D PYTHON_LIBRARY="${PREFIX}/lib/libpython${PY_VER}${SUFFIX}" \
          -D Python_ADDITIONAL_VERSIONS=${CONDA_PY} \
          -D PYTHON_EXECUTABLE:FILEPATH=$PYTHON \
-         -D Python_INCLUDE_DIR=${PREFIX}/include/python${PY_VER} \
+         -D Python_INCLUDE_DIRS=${PREFIX}/include/python${PY_VER} \
          -D COMPILER_CXXFLAGS="-I${PREFIX}/include -w" \
          -D local-castem-header=ON \
          -D enable-fortran=ON \
