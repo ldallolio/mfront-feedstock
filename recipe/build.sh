@@ -12,20 +12,21 @@ else
   export LIBPATH="$PREFIX/lib $LIBPATH"
 fi
 
-
 cmake ${CMAKE_ARGS} -Wno-dev \
+         -D CMAKE_PREFIX_PATH=$PREFIX \
+         -D CMAKE_SYSTEM_PREFIX_PATH=$PREFIX \
+         -D PYTHON_EXECUTABLE:FILEPATH="${PYTHON}" \
+         -D Python_ADDITIONAL_VERSIONS=${CONDA_PY} \
+         -D PYTHON_INCLUDE_DIRS="${PREFIX}/include" \
+         -D COMPILER_CXXFLAGS="-I${PREFIX}/include -w" \
+         -D CMAKE_INSTALL_PREFIX=$PREFIX \
          -D local-castem-header=ON \
          -D enable-fortran=ON \
          -D enable-aster=ON \
          -D enable-cyrano=ON \
-         -D PYTHON_EXECUTABLE:FILEPATH=$PYTHON \
-         -D Python_ADDITIONAL_VERSIONS=${CONDA_PY} \
-         -D PYTHON_INCLUDE_DIRS=${PREFIX}/include \
-         -D COMPILER_CXXFLAGS="-I${PREFIX}/include -w" \
          -D enable-python=ON \
          -D enable-python-bindings=ON \
          -D enable-portable-build=ON \
-         -D CMAKE_INSTALL_PREFIX=$PREFIX \
          -S . -B build
 
 cmake --build ./build --config Release -j 1 # docker gets killed with higher parallelism
