@@ -17,10 +17,9 @@ fi
 cmake ${CMAKE_ARGS} -Wno-dev \
          -D CMAKE_PREFIX_PATH=$PREFIX \
          -D CMAKE_SYSTEM_PREFIX_PATH=$PREFIX \
-         -D Python3_EXECUTABLE="${PYTHON}" \
-         -D PYTHON_LIBRARIES="${PREFIX}/lib/libpython${PY_VER}${SUFFIX}" \
+         -D PYTHON_LIBRARY="${PREFIX}/lib/libpython${PY_VER}${SUFFIX}" \
          -D PYTHON_EXECUTABLE:FILEPATH=$PYTHON \
-         -D PYTHON_INCLUDE_DIRS="${PREFIX}/include" \
+         -D PYTHON_INCLUDE_DIR="${PREFIX}/include" \
          -D COMPILER_CXXFLAGS="-I${PREFIX}/include -w" \
          -D local-castem-header=ON \
          -D enable-fortran=ON \
