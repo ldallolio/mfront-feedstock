@@ -15,20 +15,20 @@ else
 fi
 
 cmake ${CMAKE_ARGS} -Wno-dev \
-         -D CMAKE_PREFIX_PATH=$PREFIX \
-         -D CMAKE_SYSTEM_PREFIX_PATH=$PREFIX \
-         -D PYTHON_LIBRARY="${PREFIX}/lib/libpython${PY_VER}${SUFFIX}" \
-         -D Python_ADDITIONAL_VERSIONS=${CONDA_PY} \
-         -D PYTHON_EXECUTABLE:FILEPATH=$PYTHON \
-         -D Python_INCLUDE_DIRS=${PREFIX}/include/python${PY_VER} \
-         -D COMPILER_CXXFLAGS="-I${PREFIX}/include -w" \
-         -D local-castem-header=ON \
-         -D enable-fortran=ON \
-         -D enable-aster=ON \
-         -D enable-cyrano=ON \
-         -D enable-python=ON \
-         -D enable-python-bindings=ON \
-         -D enable-portable-build=ON \
+         -DCMAKE_BUILD_TYPE=Release \
+         -Dlocal-castem-header=ON \
+         -Denable-fortran=ON \
+         -Denable-aster=ON \
+         -Denable-cyrano=ON \
+         -DPython_ADDITIONAL_VERSIONS=${CONDA_PY} \
+         -DPYTHON_INCLUDE_DIRS=${PREFIX}/include \
+         -DPYTHON_INCLUDE_DIR=${PREFIX}/include/python${PY_VER} \
+         -DPYTHON_LIBRARY="${PREFIX}/lib/libpython${PY_VER}${SUFFIX}" \
+         -DCOMPILER_CXXFLAGS="-I${PREFIX}/include -w" \
+         -Denable-python=ON \
+         -Denable-python-bindings=ON \
+         -Denable-portable-build=ON \
+         -DCMAKE_INSTALL_PREFIX=$PREFIX \
          -S . -B build
 
 cmake --build ./build --config Release -j 1 # docker gets killed with higher parallelism
