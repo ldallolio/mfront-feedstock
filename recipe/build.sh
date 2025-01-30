@@ -7,15 +7,18 @@ echo "**************** M F R O N T  B U I L D  S T A R T S  H E R E ************
 if [[ "${target_platform}" == osx-* ]]; then
   export LDFLAGS="$LDFLAGS -lm -lpthread -ldl -lz -lomp"
   export LIBPATH="$PREFIX/lib $LIBPATH"
+  export SUFFIX=.dylib
 else
   export LDFLAGS="$LDFLAGS -L$PREFIX/lib -lm -lpthread -lrt -ldl -lz -lgomp"
   export LIBPATH="$PREFIX/lib $LIBPATH"
+  export SUFFIX=.so
 fi
 
 cmake ${CMAKE_ARGS} -Wno-dev \
          -D CMAKE_PREFIX_PATH=$PREFIX \
          -D CMAKE_SYSTEM_PREFIX_PATH=$PREFIX \
          -D Python3_EXECUTABLE="${PYTHON}" \
+         -D PYTHON_LIBRARIES="${PREFIX}/lib/libpython${PY_VER}${SUFFIX}" \
          -D PYTHON_EXECUTABLE:FILEPATH=$PYTHON \
          -D PYTHON_INCLUDE_DIRS="${PREFIX}/include" \
          -D COMPILER_CXXFLAGS="-I${PREFIX}/include -w" \
