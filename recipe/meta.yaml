@@ -12,10 +12,10 @@ source:
   sha256: {{ sha256 }}
   patches:
     - patches/support_llvm-flang.patch  # [win]
+    - patches/fix_Issue_703.patch
 
 build:
-  number: 0
-  skip: true  # [osx]
+  number: 1
   detect_binary_files_with_prefix: true
   run_exports:
     - {{ pin_subpackage('mfront', max_pin='x.x.x') }}
@@ -26,6 +26,8 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cmake
     - make  # [not win]
     - ninja                       # [win]
@@ -35,6 +37,7 @@ requirements:
     - llvm-openmp  # [osx]
   host:
     - libboost-python-devel
+    - numpy  # [not osx]
     - python
     - zlib  # [linux]
   run:
