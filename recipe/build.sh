@@ -4,10 +4,8 @@ set -e
 echo "**************** M F R O N T  B U I L D  S T A R T S  H E R E ****************"
 
 # https://docs.conda.io/projects/conda-build/en/latest/resources/compiler-tools.html#an-aside-on-cmake-and-sysroots
-export ENABLE_NUMPY=ON
 if [[ "${target_platform}" == osx-* ]]; then
   export LDFLAGS="$LDFLAGS -lm -lpthread -ldl -lz -lomp"
-  export ENABLE_NUMPY=OFF
 else
   export LDFLAGS="$LDFLAGS -L$PREFIX/lib -lm -lpthread -lrt -ldl -lz -lgomp"
 fi
@@ -26,7 +24,7 @@ cmake ${CMAKE_ARGS} -Wno-dev \
          -DCOMPILER_CXXFLAGS="-I${PREFIX}/include -w" \
          -Denable-python=ON \
          -Denable-python-bindings=ON \
-         -Denable-numpy-support=${ENABLE_NUMPY} \
+         -Denable-numpy-support=ON \
          -Denable-portable-build=ON \
          -DCMAKE_INSTALL_PREFIX=$PREFIX \
          -DUSE_EXTERNAL_COMPILER_FLAGS=ON \

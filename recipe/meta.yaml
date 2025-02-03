@@ -13,9 +13,10 @@ source:
   patches:
     - patches/support_llvm-flang.patch  # [win]
     - patches/fix_Issue_703.patch
+    - patches/remove_numpy_init_wrap.patch
 
 build:
-  number: 1
+  number: 2
   detect_binary_files_with_prefix: true
   run_exports:
     - {{ pin_subpackage('mfront', max_pin='x.x.x') }}
@@ -28,6 +29,7 @@ requirements:
     - {{ compiler('cxx') }}
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
     - cmake
     - make  # [not win]
     - ninja                       # [win]
@@ -37,7 +39,7 @@ requirements:
     - llvm-openmp  # [osx]
   host:
     - libboost-python-devel
-    - numpy  # [not osx]
+    - numpy
     - python
     - zlib  # [linux]
   run:
