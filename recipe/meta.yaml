@@ -39,7 +39,6 @@ requirements:
     - llvm-openmp  # [osx]
   host:
     - libboost-python-devel
-    - llvm-openmp  # [osx]
     - numpy
     - python
     - zlib  # [linux]
