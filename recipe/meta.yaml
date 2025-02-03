@@ -13,6 +13,7 @@ source:
   patches:
     - patches/support_llvm-flang.patch  # [win]
     - patches/fix_Issue_703.patch
+    - patches/remove_numpy_init_wrap.patch
 
 build:
   number: 2
