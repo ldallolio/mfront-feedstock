@@ -30,7 +30,7 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
-    - cmake
+    - cmake <4
     - make  # [not win]
     - ninja                       # [win]
     - clang                       # [win]
