@@ -17,6 +17,12 @@ cmake ${CMAKE_ARGS} -Wno-dev \
          -Denable-fortran=ON \
          -Denable-aster=ON \
          -Denable-cyrano=ON \
+         -Denable-lsdyna=ON \
+         -Denable-abaqus=ON \
+         -Denable-calculix=ON \
+         -Denable-comsol=ON \
+         -Denable-diana-fea=ON \
+         -Denable-ansys=ON \
          -DPython_ADDITIONAL_VERSIONS=${CONDA_PY} \
          -DPYTHON_INCLUDE_DIRS=${PREFIX}/include \
          -DPYTHON_INCLUDE_DIR=${PREFIX}/include/python${PY_VER} \
