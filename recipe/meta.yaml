@@ -44,8 +44,7 @@ requirements:
     - zlib  # [linux]
   run:
     - python
-    - libboost-python
-    - libboost-filesystem
+    - libboost
 
 test:
   commands:
