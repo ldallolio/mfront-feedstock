@@ -38,13 +38,14 @@ requirements:
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
   host:
-    - libboost-python-devel
+    - libboost-devel
     - numpy
     - python
     - zlib  # [linux]
   run:
     - python
     - libboost
+    - libboost-graph
 
 test:
   commands:
